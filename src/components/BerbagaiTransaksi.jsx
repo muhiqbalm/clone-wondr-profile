@@ -2,225 +2,207 @@
 
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { useState } from "react";
 
 const transactionData = [
   {
     id: 1,
     title: "Transfer",
-    description: "Kirim uang kapan aja, ke mana aja",
+    subtitle: "Kirim uang kapan aja, ke mana aja",
+    description:
+      "Kirim uang ke mana aja dan atur jadwal transfer sesuai maumu. Bisa transfer ke banyak tujuan sekaligus!",
     image: "https://wondr.bni.co.id/api/image/layer_1_1751485455683.png",
-    color: "bg-blue-50",
-    features: [
-      "Transfer antar bank",
-      "Real-time processing",
-      "Biaya admin rendah",
-    ],
   },
   {
     id: 2,
-    title: "Pembayaran",
-    description: "Bayar tagihan dengan mudah dan cepat",
-    image: "https://wondr.bni.co.id/api/image/layer_1_1751485455683.png",
-    color: "bg-green-50",
-    features: ["Bayar listrik & air", "Tagihan telepon", "Cicilan kendaraan"],
+    title: "Mobile Tunai",
+    subtitle: "Tarik tunai bisa tanpa kartu",
+    description:
+      "Gak bawa kartu? Gak masalah! Cukup buka aplikasi, tarik tunai segampang itu.",
+    image:
+      "https://wondr.bni.co.id/api/image/group_427323199_1751485555775.png",
   },
   {
     id: 3,
-    title: "Top Up",
-    description: "Isi saldo e-wallet favorit kamu",
-    image: "https://wondr.bni.co.id/api/image/layer_1_1751485455683.png",
-    color: "bg-purple-50",
-    features: ["Top up OVO", "Top up GoPay", "Top up DANA"],
+    title: "E-Wallet",
+    subtitle: "Cek dan top up saldo gak perlu pindah aplikasi",
+    description:
+      "Gak perlu buka banyak aplikasi, top up dan cek saldo e-Wallet bisa langsung di sini.",
+    image: "https://wondr.bni.co.id/api/image/illustration_1751485629668.png",
   },
   {
     id: 4,
-    title: "Investasi",
-    description: "Mulai investasi dengan modal terjangkau",
-    image: "https://wondr.bni.co.id/api/image/layer_1_1751485455683.png",
-    color: "bg-orange-50",
-    features: ["Reksadana", "Deposito", "Obligasi pemerintah"],
+    title: "Transfer Luar Negeri",
+    subtitle: "Kirim uang antarnegara dalam hitungan menit",
+    description:
+      "Transfer ke berbagai negara gak perlu nunggu lama. Bisa cek status pengiriman juga.",
+    image: "https://wondr.bni.co.id/api/image/layer_4_1751485713019.png",
   },
   {
     id: 5,
-    title: "Tabungan",
-    description: "Kelola tabungan dengan fitur lengkap",
-    image: "https://wondr.bni.co.id/api/image/layer_1_1751485455683.png",
-    color: "bg-pink-50",
-    features: ["Tabungan reguler", "Tabungan berjangka", "Tabungan haji"],
+    title: "Lifestyle",
+    subtitle: "Ada tiket konser, undian, sampai tiket kerata api",
+    description:
+      "Dari tiket kereta api, tiket konser, sampai undian berhadiah tersedia buat kamu.",
+    image: "https://wondr.bni.co.id/api/image/left_arm_1751546357234.png",
+  },
+  {
+    id: 6,
+    title: "Bayar & Beli",
+    subtitle: "Bisa bayar tagihan di puluhan layanan",
+    description:
+      "Satu tempat bisa buat beli pulsa, bayar listrik, sampai zakat. Ada pengingat biar gak kelewat!",
+    image: "https://wondr.bni.co.id/api/image/billpay_1751635640586.png",
+  },
+  {
+    id: 7,
+    title: "QRIS",
+    subtitle: "Tinggal tap atau scan buat bayar-bayar",
+    description:
+      "Bayar ini itu jadi bebas repot, bebas antri, tetap aman, dan praktis.",
+    image:
+      "https://wondr.bni.co.id/api/image/group_427323200_1751485932741.png",
+  },
+  {
+    id: 8,
+    title: "TapCash",
+    subtitle: "Bayar tol sampai parkir tinggal tap aja",
+    description:
+      "Tinggal tempelin kartu ke HP buat cek dan isi saldo. Pakai Express Top Up bisa tanpa login.",
+    image: "https://wondr.bni.co.id/api/image/tapcash_new_1751635836436.png",
   },
 ];
 
 export default function BerbagaiTransaksi() {
-  let swiperInstance = null;
-
-  const setSwiperRef = (swiper) => {
-    swiperInstance = swiper;
-  };
+  const [flippedCards, setFlippedCards] = useState([]);
 
   const toggleFlip = (cardId) => {
-    const cardElement = document.getElementById(`card-${cardId}`);
-    if (cardElement) {
-      cardElement.classList.toggle("flipped");
-    }
+    setFlippedCards((prev) =>
+      prev.includes(cardId)
+        ? prev.filter((id) => id !== cardId)
+        : [...prev, cardId]
+    );
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Berbagai transaksi cukup satu aplikasi
-          </h2>
-        </div>
+    <section className="py-8 md:py-72 bg-white">
+      <div className="container-72 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] !leading-snug lg:!leading-tight text-black font-semibold">
+          Berbagai transaksi cukup satu aplikasi
+        </h2>
+      </div>
 
-        <div className="relative">
-          <Swiper
-            onSwiper={setSwiperRef}
-            modules={[Pagination]}
-            spaceBetween={24}
-            slidesPerView={1}
-            centeredSlides={true}
-            pagination={{
-              clickable: true,
-              bulletClass: "swiper-pagination-bullet !bg-gray-300 !opacity-100",
-              bulletActiveClass: "!bg-gray-900",
-            }}
-            breakpoints={{
-              640: { slidesPerView: 1.5, spaceBetween: 20 },
-              768: { slidesPerView: 2, spaceBetween: 24 },
-              1024: { slidesPerView: 2.5, spaceBetween: 32 },
-              1280: { slidesPerView: 3, spaceBetween: 32 },
-            }}
-            className="!pb-12"
-          >
-            {transactionData.map((card) => (
-              <SwiperSlide key={card.id} className="!h-auto">
-                <div className="w-full max-w-sm mx-auto h-96 md:h-[480px] perspective-1000">
+      <div className="text-center mt-4 md:mt-10 pb-2 overflow-hidden">
+        <Swiper
+          pagination={{ clickable: true }}
+          spaceBetween={20}
+          slidesOffsetBefore={72}
+          slidesOffsetAfter={72} // ✅ Tambahkan ini
+          breakpoints={{
+            640: { slidesPerView: 1.2 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 2.5 },
+            1280: { slidesPerView: 3 },
+          }}
+          className="pb-8"
+          centeredSlides={false}
+          loop={false}
+          watchOverflow={true}
+        >
+          {transactionData.map((card) => {
+            const isFlipped = flippedCards.includes(card.id);
+            return (
+              <SwiperSlide
+                key={card.id}
+                className="2xl:!h-[550px] 2xl:!max-w-[400px] xl:!h-[465px] md:!h-[420px] !h-[272px] !my-2"
+              >
+                <div className="relative [perspective:1000px] w-full h-full pr-4">
                   <div
-                    id={`card-${card.id}`}
-                    className="relative w-full h-full preserve-3d transition-transform duration-700 card-container"
+                    className={`relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 ${
+                      isFlipped ? "transform rotate-y-180" : ""
+                    }`}
                   >
-                    <div
-                      className={`absolute inset-0 backface-hidden rounded-3xl ${card.color} border-2 border-gray-200 shadow-xl overflow-hidden`}
-                    >
-                      <div className="p-6 h-full flex flex-col">
-                        <div className="mb-4">
-                          <h3 className="text-sm font-medium text-gray-600 mb-2">
-                            {card.title}
-                          </h3>
-                          <p className="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
-                            {card.description}
-                          </p>
-                        </div>
-                        <div className="flex-1 flex items-end justify-center relative">
-                          <div className="relative w-full max-w-[280px] h-[200px] md:h-[280px]">
-                            <Image
-                              src={card.image}
-                              alt={card.title}
-                              fill
-                              className="object-contain"
-                              onError={(e) => {
-                                e.target.src = "/api/placeholder/280/200";
-                              }}
-                            />
-                          </div>
-                        </div>
-                        <button
-                          onClick={() => toggleFlip(card.id)}
-                          className="absolute bottom-6 left-6 w-12 h-12 bg-black/80 hover:bg-black rounded-full flex items-center justify-center transition-colors border-2 border-white shadow-lg z-10"
-                        >
-                          <svg
-                            className="w-6 h-6 text-white"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 4v16m8-8H4"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-gray-900 to-gray-800 text-white shadow-xl overflow-hidden">
-                      <div className="p-6 h-full flex flex-col justify-center items-center text-center">
-                        <h3 className="text-2xl font-bold mb-4">
+                    {/* FRONT CARD */}
+                    <div className="absolute w-full h-full bg-[#f9f9f9] rounded-3xl md:rounded-4xl flex flex-col justify-between [backface-visibility:hidden] [transform:rotateY(0deg)] min-h-[272px] md:min-h-[420px]">
+                      <div className="px-4 pt-6 lg:px-6 text-left">
+                        <h3 className="text-xs md:text-sm xl:text-base font-light text-black">
                           {card.title}
                         </h3>
-                        <p className="text-lg mb-6">{card.description}</p>
-                        <div className="space-y-3 text-sm mb-6">
-                          {card.features.map((feature, index) => (
-                            <div
-                              key={index}
-                              className="flex items-center justify-center gap-2"
-                            >
-                              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                              <span>{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-                        <button
-                          onClick={() => toggleFlip(card.id)}
-                          className="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
-                        >
-                          <svg
-                            className="w-6 h-6 text-white"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M6 18L18 6M6 6l12 12"
-                            />
-                          </svg>
-                        </button>
+                        <p className="text-sm md:text-xl lg:text-2xl xl:text-3xl font-semibold !font-bold !leading-[120%] mt-1 lg:mt-[10px]">
+                          {card.subtitle}
+                        </p>
                       </div>
+                      <div className="w-full rounded-b-3xl md:rounded-b-4xl overflow-hidden flex justify-center items-end h-full max-h-[250px] md:max-h-[450px]">
+                        <Image
+                          alt={card.title}
+                          width={500}
+                          height={0}
+                          src={card.image}
+                          className="md:w-full object-contain md:object-cover w-[110%] max-w-[110%] max-h-[250px] md:max-h-[450px]"
+                        />
+                      </div>
+                      <button
+                        onClick={() => toggleFlip(card.id)}
+                        className="absolute bottom-4 left-4 w-6 h-6 md:bottom-6 md:left-6 md:w-12 md:h-12 rounded-full bg-black flex items-center justify-center opacity-50 border border-white"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-3 h-3 md:w-5 md:h-5 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 4v16m8-8H4"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+
+                    {/* BACK CARD */}
+                    <div className="absolute top-0 left-0 w-full h-full bg-[#f9f9f9] rounded-3xl md:rounded-4xl flex flex-col justify-between overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)] min-h-[272px] md:min-h-[420px]">
+                      <div className="p-6 text-left">
+                        <h3 className="text-xs md:text-sm lg:text-base font-light text-black">
+                          {card.title}
+                        </h3>
+                        <p className="text-sm md:text-lg lg:text-2xl font-light text-black !leading-[140%] mt-1 lg:mt-[10px] mb-6">
+                          {card.description}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => toggleFlip(card.id)}
+                        className="relative bottom-4 left-4 w-6 h-6 md:bottom-6 md:left-6 md:w-12 md:h-12 rounded-full bg-black flex items-center justify-center opacity-50 border border-white"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-3 h-3 md:w-5 md:h-5 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M20 12H4"
+                          />
+                        </svg>
+                      </button>
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+            );
+          })}
+        </Swiper>
       </div>
-
-      <style jsx>{`
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-        .preserve-3d {
-          transform-style: preserve-3d;
-        }
-        .backface-hidden {
-          backface-visibility: hidden;
-        }
-        .rotate-y-180 {
-          transform: rotateY(180deg);
-        }
-        .card-container.flipped {
-          transform: rotateY(180deg);
-        }
-        .swiper-pagination {
-          position: static !important;
-          margin-top: 24px;
-        }
-        .swiper-pagination-bullet {
-          width: 12px !important;
-          height: 12px !important;
-          margin: 0 4px !important;
-        }
-      `}</style>
     </section>
   );
 }

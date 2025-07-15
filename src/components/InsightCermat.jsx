@@ -4,7 +4,7 @@ export default function InsightCermat(params) {
   return (
     <section className="py-6 xl:px-[200px] md:pt-9 md:pb-[72px] bg-white">
       <div className="px-6">
-        <h2 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] !leading-snug lg:!leading-tight text-black text-center font-demibold xl: text-[40px] ">
+        <h2 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] !leading-snug lg:!leading-tight text-black text-center font-semibold xl: text-[40px] ">
           Insight cermat dari kebiasaan keuangan
         </h2>
       </div>
