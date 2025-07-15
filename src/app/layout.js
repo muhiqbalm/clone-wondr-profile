@@ -1,15 +1,50 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import { Poppins } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const TTCommons = localFont({
+  src: [
+    {
+      path: "./fonts/Fontspring-DEMO-tt_commons_pro_thin.otf",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Fontspring-DEMO-tt_commons_pro_light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Fontspring-DEMO-tt_commons_pro_regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Fontspring-DEMO-tt_commons_pro_medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/TTCommons-DemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Fontspring-DEMO-tt_commons_pro_extrabold.otf",
+      weight: "800",
+      style: "normal",
+    },
+  ],
+  variable: "--font-ttcommons", // optional: use in Tailwind or CSS
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata = {
@@ -21,9 +56,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${TTCommons.className} ${poppins.className} antialiased relative`}
       >
-        <Footer />
+        <Navbar />
+
         {children}
         <Footer />
       </body>

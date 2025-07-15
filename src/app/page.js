@@ -1,5 +1,4 @@
-import Footer from "@/components/Footer";
-import InvestSection from "@/components/MulaiInvestasi";
+import Jumbotron from "@/components/Jumbotron";
 import Image from "next/image";
 import KenalanSama from "@/components/KenalanSama";
 
