@@ -1,18 +1,13 @@
-import Footer from "@/components/Footer";
+import Jumbotron from "@/components/Jumbotron";
+import IntroSection from "@/components/KenalanSama";
 import InvestSection from "@/components/MulaiInvestasi";
-import Image from "next/image";
-import KenalanSama from "@/components/KenalanSama";
 
 export default function Home() {
-
   return (
     <main>
-      {/* Konten halaman */}
-       <KenalanSama />
+      <Jumbotron />
+      <IntroSection />
       <InvestSection />
-      {/* Footer selalu di luar main */}
     </main>
   );
-
-
 }
