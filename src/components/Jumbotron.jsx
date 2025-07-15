@@ -6,16 +6,20 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const jumbotronData = [
   {
-    href: "https://bniexperience.bni.co.id/promo/preview/jadi-nasabah-bni-dapat-cashback-hingga-rp2500000-cziglt?utm_source=microsite&utm_medium=home_promo&utm_campaign=wondr&utm_term=jumbotron&utm_content=promo_ntb_79",
+    href: "https://bniexperience.bni.co.id/promo/preview/jadi-nasabah-bni-dapat-cashback-hingga-rp2500000-cziglt",
     image: "/images/jumbotron1.webp",
+    imageMobile: "/images/jumbotron_mobile_1.webp",
     alt: "Jumbotron Promo 1",
   },
   {
-    href: "https://bniexperience.bni.co.id/promo/detail/reward-hingga-rp790000-wtimnd?utm_source=microsite&utm_medium=home_promo&utm_campaign=wondr&utm_term=jumbotron&utm_content=ntb_hut79_790k",
+    href: "https://bniexperience.bni.co.id/promo/detail/reward-hingga-rp790000-wtimnd",
     image: "/images/jumbotron2.webp",
+    imageMobile: "/images/jumbotron_mobile_2.webp",
     alt: "Jumbotron Promo 2",
   },
 ];
@@ -23,6 +27,17 @@ const jumbotronData = [
 export default function Jumbotron() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    updateIsMobile();
+    window.addEventListener("resize", updateIsMobile);
+    return () => window.removeEventListener("resize", updateIsMobile);
+  }, []);
 
   return (
     <div className="relative">
@@ -51,11 +66,14 @@ export default function Jumbotron() {
         {jumbotronData.map((slide, index) => (
           <SwiperSlide key={index}>
             <a href={slide.href} className="block cursor-pointer">
-              <div className="relative w-full">
-                <img
-                  src={slide.image}
+              <div className="relative w-full aspect-[9/14] md:aspect-[16/9]">
+                <Image
+                  src={isMobile ? slide.imageMobile : slide.image}
                   alt={slide.alt}
-                  className="w-full h-auto"
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority
                 />
               </div>
             </a>
