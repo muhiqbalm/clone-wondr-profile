@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function KenalanSama() {
+export default function IntroSection() {
   return (
     <section className="py-6 md:py-[72px] bg-gray-50">
       <div className="px-[120px] mx-auto text-center">
