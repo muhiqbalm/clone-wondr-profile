@@ -257,7 +257,7 @@ function DropdownDesktopFitur({ isOpen }) {
               {section.image ? (
                 <>
                   <div className="p-6">
-                    <h3 className="font-demibold text-base mb-6">Lainnya</h3>
+                    <h3 className="font-semibold text-base mb-6">Lainnya</h3>
                     <ul className="flex flex-col list-none text-base font-light">
                       <li>
                         <a
