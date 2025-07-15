@@ -9,12 +9,12 @@ import "swiper/css/navigation";
 
 const jumbotronData = [
   {
-    href: "/promo/detail-1",
+    href: "https://bniexperience.bni.co.id/promo/preview/jadi-nasabah-bni-dapat-cashback-hingga-rp2500000-cziglt?utm_source=microsite&utm_medium=home_promo&utm_campaign=wondr&utm_term=jumbotron&utm_content=promo_ntb_79",
     image: "/images/jumbotron1.webp",
     alt: "Jumbotron Promo 1",
   },
   {
-    href: "/promo/detail-2",
+    href: "https://bniexperience.bni.co.id/promo/detail/reward-hingga-rp790000-wtimnd?utm_source=microsite&utm_medium=home_promo&utm_campaign=wondr&utm_term=jumbotron&utm_content=ntb_hut79_790k",
     image: "/images/jumbotron2.webp",
     alt: "Jumbotron Promo 2",
   },

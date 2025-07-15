@@ -9,27 +9,49 @@ const dropdownData = [
   {
     title: "Transaksi",
     items: [
-      { name: "Transfer", href: "/detail/transfer" },
-      { name: "Bayar & Beli", href: "/detail/bayar-beli" },
-      { name: "TapCash", href: "/detail/tapcash" },
-      { name: "Transfer Luar Negeri", href: "/detail/remittance" },
-      { name: "Mobile Tunai", href: "/detail/mobile-tunai" },
+      { name: "Transfer", href: "https://wondr.bni.co.id/detail/transfer" },
+      {
+        name: "Bayar & Beli",
+        href: "https://wondr.bni.co.id/detail/bayar-beli",
+      },
+      { name: "TapCash", href: "https://wondr.bni.co.id/detail/tapcash" },
+      {
+        name: "Transfer Luar Negeri",
+        href: "https://wondr.bni.co.id/detail/remittance",
+      },
+      {
+        name: "Mobile Tunai",
+        href: "https://wondr.bni.co.id/detail/mobile-tunai",
+      },
     ],
   },
   {
     title: "Simpanan",
-    items: [{ name: "wondr multicurrency", href: "/detail/multicurrency" }],
+    items: [
+      {
+        name: "wondr multicurrency",
+        href: "https://wondr.bni.co.id/detail/multicurrency",
+      },
+    ],
   },
   {
     title: "Investasi",
     items: [
-      { name: "Reksa Dana", href: "/detail/reksa-dana" },
-      { name: "Obligasi/Sukuk", href: "/detail/obligasi" },
+      { name: "Reksa Dana", href: "https://wondr.bni.co.id/detail/reksa-dana" },
+      {
+        name: "Obligasi/Sukuk",
+        href: "https://wondr.bni.co.id/detail/obligasi",
+      },
     ],
   },
   {
     title: "Lainnya",
-    items: [{ name: "Registrasi & Referral", href: "/detail/onboarding" }],
+    items: [
+      {
+        name: "Registrasi & Referral",
+        href: "https://wondr.bni.co.id/detail/onboarding",
+      },
+    ],
     image: {
       src: "https://wondr.bni.co.id/assets/images/ntb.svg",
       alt: "ntb",
@@ -57,12 +79,7 @@ export default function Navbar() {
               />
             </Link>
             <div className="flex items-center gap-[20px]">
-              <button
-                type="button"
-                className="!px-6 !py-[9px] !text-xs text-black font-semibold bg-[#71DBD3] hover:bg-[#5CCFC5] disabled:bg-[#A7ECE8] rounded-[32px]"
-              >
-                Download Sekarang
-              </button>
+              <DownloadPopup />
 
               <button onClick={() => setMenuOpen(!!menuOpen ? null : "Fitur")}>
                 <Image
@@ -193,12 +210,8 @@ export default function Navbar() {
             <DropdownDesktopInfo isOpen={menuOpen === "Info"} />
 
             <div className="flex justify-end gap-6 items-center">
-              <button
-                type="button"
-                className="!px-6 !py-[9px] text-sm text-black font-semibold bg-[#71DBD3] hover:bg-[#5CCFC5] disabled:bg-[#A7ECE8] rounded-[32px]"
-              >
-                Download Sekarang
-              </button>
+              <DownloadPopup />
+
               <div className="flex items-center space-x-1">
                 <div className="flex items-center odd:divide-x odd:divide-[#7A7A7A]">
                   <button className="text-[16px] leading-[24px] font-semibold pe-2 text-[#141414]">
@@ -225,7 +238,7 @@ export default function Navbar() {
   );
 }
 
-function DropdownDesktopFitur({ isOpen, onClose }) {
+function DropdownDesktopFitur({ isOpen }) {
   return (
     <div
       className={`hidden md:flex !absolute left-0 right-0 top-full w-full bg-[#F9F9F9] rounded-b-xl z-[50] transition-all duration-500 ease-in-out transform ${
@@ -236,33 +249,57 @@ function DropdownDesktopFitur({ isOpen, onClose }) {
     >
       <div className="block w-full py-6 px-6 lg:px-[150px] overflow-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 max-w-screen-xl w-full">
-          {dropdownData.map((section) => (
+          {dropdownData.map((section, index) => (
             <div
-              key={section.title}
-              className="bg-white p-6 rounded-lg transition-transform duration-500 flex flex-col text-black after:content-[''] after:block after:h-[120px]"
+              key={section.title || index}
+              className="bg-white rounded-lg transition-transform duration-500 flex flex-col justify-between"
             >
-              <h3 className="font-semibold text-base mb-6">{section.title}</h3>
-              <ul className="flex flex-col list-none text-base font-light">
-                {section.items.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      rel="noopener noreferrer"
-                      href={item.href}
-                      className="block p-[10px] rounded-lg transition-all duration-500 hover:bg-[#F0F0F0]"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              {section.image && (
-                <Image
-                  src={section.image.src}
-                  alt={section.image.alt}
-                  width={section.image.width}
-                  height={0}
-                  className="object-cover w-[375px] rounded-b-lg mt-4"
-                />
+              {section.image ? (
+                <>
+                  <div className="p-6">
+                    <h3 className="font-demibold text-base mb-6">Lainnya</h3>
+                    <ul className="flex flex-col list-none text-base font-light">
+                      <li>
+                        <a
+                          rel="noopener noreferrer"
+                          className="block p-[10px] rounded-lg transition-all duration-500 hover:bg-[#F0F0F0]"
+                          href="/detail/onboarding"
+                        >
+                          Registrasi &amp; Referral
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <img
+                    alt="ntb"
+                    loading="lazy"
+                    width="375"
+                    height="0"
+                    decoding="async"
+                    className="object-cover w-[375px] rounded-b-lg"
+                    src="https://wondr.bni.co.id/assets/images/ntb.svg"
+                    style={{ color: "transparent" }}
+                  />
+                </>
+              ) : (
+                <div className="p-6 flex flex-col text-black after:content-[''] after:block after:h-[120px]">
+                  <h3 className="font-semibold text-base mb-6">
+                    {section.title}
+                  </h3>
+                  <ul className="flex flex-col list-none text-base font-light">
+                    {section.items.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          rel="noopener noreferrer"
+                          href={item.href}
+                          className="block p-[10px] rounded-lg transition-all duration-500 hover:bg-[#F0F0F0]"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </div>
           ))}
@@ -309,7 +346,7 @@ function DropdownDesktopInfo({ isOpen }) {
             </ul>
             <div className="px-4 py-2 mt-4">
               <Link
-                href="/faq"
+                href="https://wondr.bni.co.id/faq"
                 className="text-[#FF8736] text-sm font-bold flex items-center gap-1 hover:underline"
               >
                 Lihat Selengkapnya
@@ -344,7 +381,7 @@ function DropdownDesktopInfo({ isOpen }) {
               </div>
               <div className="px-4 py-2 mt-4">
                 <Link
-                  href="/legal/privacy-policy"
+                  href="https://wondr.bni.co.id/legal/privacy-policy"
                   className="text-[#FF8736] text-sm font-bold flex items-center gap-1 hover:underline"
                 >
                   Lihat Selengkapnya
@@ -453,7 +490,7 @@ function DropdownMobileInfo() {
           </ul>
           <div className="px-4 py-2 mt-4">
             <Link
-              href="/faq"
+              href="https://wondr.bni.co.id/faq"
               className="text-[#FF8736] text-sm font-bold hover:underline flex items-center gap-1"
             >
               Lihat Selengkapnya
@@ -487,7 +524,7 @@ function DropdownMobileInfo() {
           </p>
           <div className="px-4 py-2 mt-4">
             <Link
-              href="/legal/privacy-policy"
+              href="https://wondr.bni.co.id/legal/privacy-policy"
               className="text-[#FF8736] text-sm font-bold hover:underline flex items-center gap-1"
             >
               Lihat Selengkapnya
@@ -510,5 +547,77 @@ function DropdownMobileInfo() {
         </div>
       </div>
     </div>
+  );
+}
+
+function DownloadPopup() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      {/* Tombol untuk membuka modal */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
+        className="!px-6 !py-[9px] text-sm text-black font-semibold bg-[#71DBD3] hover:bg-[#5CCFC5] disabled:bg-[#A7ECE8] rounded-[32px]"
+      >
+        Download Sekarang
+      </button>
+
+      {/* Modal backdrop */}
+      {isOpen && (
+        <div
+          id="backdrop"
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+        >
+          {/* Stop propagation agar tidak tertutup saat isi modal diklik */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white shadow-lg rounded-2xl md:rounded-4xl p-8 md:p-12 max-w-[376px] md:max-w-[774px] w-full"
+          >
+            <div className="flex flex-col justify-between h-full gap-8">
+              <div className="flex justify-between items-center gap-4">
+                <h2 className="font-semibold text-2xl sm:text-4xl md:text-[56px] text-black">
+                  Download Sekarang
+                </h2>
+
+                <img
+                  src="https://wondr.bni.co.id/assets/images/wondr-color-3x.png"
+                  alt="Wondr Logo"
+                  className="h-6 sm:h-10 md:h-12 md:w-[150px] w-full object-contain"
+                />
+              </div>
+
+              <div className="select-none flex flex-col gap-4">
+                <a
+                  href="https://apps.apple.com/id/app/wondr-by-bni/id6499518320"
+                  className="group cursor-pointer text-black hover:bg-black hover:text-white border border-black font-semibold rounded-full text-sm md:text-base py-3 px-4 h-12 flex items-center justify-center transition-all"
+                >
+                  <img
+                    src="/appleIcon.svg"
+                    alt="Apple Logo"
+                    className="w-5 h-5 md:w-6 md:h-6 me-2 -ms-1 transition-all duration-300 group-hover:filter group-hover:invert group-hover:brightness-0"
+                  />
+                  <span>Download di App Store</span>
+                </a>
+
+                <a
+                  href="https://play.google.com/store/apps/details?id=id.bni.wondr&hl=id"
+                  className="group cursor-pointer text-black hover:bg-black hover:text-white border border-black font-semibold rounded-full text-sm md:text-base py-3 px-4 h-12 flex items-center justify-center transition-all"
+                >
+                  <img
+                    src="/androidIcon.svg"
+                    alt="Android Logo"
+                    className="w-4 h-4 md:w-5 md:h-5 me-2 -ms-1 transition-all duration-300 group-hover:filter group-hover:invert group-hover:brightness-0"
+                  />
+                  <span>Download di Play Store</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

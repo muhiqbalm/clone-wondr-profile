@@ -27,7 +27,7 @@ const TTCommons = localFont({
       style: "normal",
     },
     {
-      path: "./fonts/TTCommons-DemiBold.woff2",
+      path: "./fonts/Fontspring-DEMO-tt_commons_pro_expanded_bold.otf",
       weight: "600",
       style: "normal",
     },
@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${TTCommons.className} ${poppins.className} antialiased relative`}
+        className={`${TTCommons.variable} ${poppins.variable} antialiased relative`}
       >
         <Navbar />
 
