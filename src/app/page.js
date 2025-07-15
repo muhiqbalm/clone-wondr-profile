@@ -5,6 +5,7 @@ import InvestSection from "@/components/MulaiInvestasi";
 import BerbagaiTransaksi from "@/components/BerbagaiTransaksi";
 import PromoSection from "@/components/Promo";
 import DownloadSection from "@/components/UdahSiap";
+import PinjamanFlexible from "../components/PinjamanFlexible";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <BerbagaiTransaksi />
       <InsightCermat />
       <InvestSection />
+      <PinjamanFlexible />
       <DownloadSection />
       <PromoSection />
     </main>
