@@ -85,11 +85,11 @@ export default function PromoSection() {
               }}
               breakpoints={{
                 768: {
-                  slidesPerView: 2.5,
+                  slidesPerView: 4,
                   spaceBetween: 30,
                 },
                 1024: {
-                  slidesPerView: 3,
+                  slidesPerView: 2.35,
                   spaceBetween: 40,
                 },
               }}
@@ -108,7 +108,7 @@ export default function PromoSection() {
                       <img
                         src={promo.src}
                         alt={promo.alt}
-                        className="w-full h-[180px] sm:h-[200px] md:h-[230px] lg:h-[250px] object-cover"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                   </a>
