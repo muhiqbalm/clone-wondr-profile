@@ -17,3 +17,7 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.custom-swiper .swiper-pagination-bullet-active {
+  background-color: #030712; /* Tailwind 'blue-700' */
+}

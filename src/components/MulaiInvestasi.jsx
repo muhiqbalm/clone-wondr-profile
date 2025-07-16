@@ -52,8 +52,8 @@ export default function InvestSection() {
 
       animate(rawIndex, targetIndex, {
         type: "tween",
-        duration: 0.1,
-        ease: "easeOut",
+        duration: 0.3, // lebih smooth
+        ease: "easeInOut", // easing yang lembut
       });
     };
 
@@ -92,18 +92,17 @@ export default function InvestSection() {
                 display: none;
               }
             `}</style>
-            <div style={{ height: "200vh" }} />
+            <div style={{ height: "75vh" }} />
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-2 sm:p-4 md:p-6">
             <motion.img
-              key={visibleIndex}
               src={images[visibleIndex]}
               alt={`Frame ${visibleIndex + 1}`}
               className="w-full min-h-[180px] sm:min-h-[220px] md:min-h-[280px] lg:min-h-[320px] xl:min-h-[380px] 2xl:min-h-[450px] object-contain"
-              initial={false}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.15 }}
+              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               style={{ willChange: "opacity, transform" }}
             />
           </div>

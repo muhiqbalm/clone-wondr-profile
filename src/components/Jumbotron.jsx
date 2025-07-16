@@ -61,7 +61,7 @@ export default function Jumbotron() {
           disableOnInteraction: false,
         }}
         loop={true}
-        className="w-full"
+        className="w-full custom-swiper"
       >
         {jumbotronData.map((slide, index) => (
           <SwiperSlide key={index}>
