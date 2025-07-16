@@ -114,7 +114,7 @@ export default function PromoSection() {
               ))}
             </Swiper>
 
-            <div className="flex gap-210 pr-6 md:pr-10 mt-6 justify-end">
+            <div className="flex pr-6 md:pr-10 mt-6 justify-between">
               <button className="swiper-button-prev-custom bg-[#71DBD3] hover:bg-[#5CCFC5] flex justify-center items-center rounded-full w-10 h-10 md:w-12 md:h-12 z-10 cursor-pointer transition-colors">
                 <ChevronLeft className="w-6 h-6 text-black" />
               </button>
