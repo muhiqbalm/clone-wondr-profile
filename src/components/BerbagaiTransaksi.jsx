@@ -89,7 +89,7 @@ export default function BerbagaiTransaksi() {
   };
 
   return (
-    <section className="py-8 md:py-72 bg-white">
+    <section className="py-8 md:py-[72px] bg-white">
       <div className="container-72 text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] !leading-snug lg:!leading-tight text-black font-semibold">
           Berbagai transaksi cukup satu aplikasi
