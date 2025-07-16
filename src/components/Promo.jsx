@@ -66,7 +66,7 @@ export default function PromoSection() {
                 href="https://bniexperience.bni.co.id/wondr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-[19px] text-sm text-center text-black font-semibold focus:outline-none bg-[#71DBD3] hover:bg-[#5CCFC5] disabled:bg-[#A7ECE8] rounded-3xl py-3 px-6 text-xs md:text-base md:py-[13px] md:px-8 h-fit"
+                className="px-8 py-[19px] text-sm text-center text-black font-semibold focus:outline-none bg-[#71DBD3] hover:bg-[#5CCFC5] disabled:bg-[#A7ECE8] rounded-4xl py-3 px-6 text-xs md:text-base md:py-[13px] md:px-8 h-fit"
               >
                 Lihat Selengkapnya
               </a>
