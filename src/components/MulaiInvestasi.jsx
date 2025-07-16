@@ -52,7 +52,7 @@ export default function InvestSection() {
 
       animate(rawIndex, targetIndex, {
         type: "tween",
-        duration: 0.3, // lebih smooth
+        duration: 0.2, // lebih smooth
         ease: "easeInOut", // easing yang lembut
       });
     };
@@ -92,7 +92,7 @@ export default function InvestSection() {
                 display: none;
               }
             `}</style>
-            <div style={{ height: "75vh" }} />
+            <div style={{ height: "300vh" }} />
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-2 sm:p-4 md:p-6">
@@ -102,7 +102,7 @@ export default function InvestSection() {
               className="w-full min-h-[180px] sm:min-h-[220px] md:min-h-[280px] lg:min-h-[320px] xl:min-h-[380px] 2xl:min-h-[450px] object-contain"
               animate={{ opacity: 1, scale: 1 }}
               initial={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
               style={{ willChange: "opacity, transform" }}
             />
           </div>
