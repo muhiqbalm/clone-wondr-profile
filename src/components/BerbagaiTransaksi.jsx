@@ -75,7 +75,7 @@ const transactionData = [
       "Tinggal tempelin kartu ke HP buat cek dan isi saldo. Pakai Express Top Up bisa tanpa login.",
     image: "https://wondr.bni.co.id/api/image/tapcash_new_1751635836436.png",
   },
-];
+].slice(0, 8); // Filter to include only up to TapCash (id: 8)
 
 export default function BerbagaiTransaksi() {
   const [flippedCards, setFlippedCards] = useState([]);
@@ -89,7 +89,7 @@ export default function BerbagaiTransaksi() {
   };
 
   return (
-    <section className="py-8 md:py-72 bg-white">
+    <section className="py-8 md:py-[72px] bg-white">
       <div className="container-72 text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] !leading-snug lg:!leading-tight text-black font-semibold">
           Berbagai transaksi cukup satu aplikasi
@@ -101,7 +101,7 @@ export default function BerbagaiTransaksi() {
           pagination={{ clickable: true }}
           spaceBetween={20}
           slidesOffsetBefore={72}
-          slidesOffsetAfter={72} // ✅ Tambahkan ini
+          slidesOffsetAfter={72}
           breakpoints={{
             640: { slidesPerView: 1.2 },
             768: { slidesPerView: 2 },
