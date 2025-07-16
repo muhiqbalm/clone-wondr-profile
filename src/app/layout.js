@@ -27,8 +27,13 @@ const TTCommons = localFont({
       style: "normal",
     },
     {
-      path: "./fonts/Fontspring-DEMO-tt_commons_pro_expanded_bold.otf",
+      path: "./fonts/Fontspring-DEMO-tt_commons_pro_expanded_demibold.otf",
       weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Fontspring-DEMO-tt_commons_pro_expanded_demibold.otf",
+      weight: "700",
       style: "normal",
     },
     {

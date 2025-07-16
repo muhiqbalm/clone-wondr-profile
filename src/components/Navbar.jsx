@@ -381,7 +381,7 @@ function DropdownDesktopInfo({ isOpen }) {
               </div>
               <div className="px-4 py-2 mt-4">
                 <Link
-                  href="https://wondr.bni.co.id/legal/privacy-policy"
+                  href="/legal/privacy-policy"
                   className="text-[#FF8736] text-sm font-bold flex items-center gap-1 hover:underline"
                 >
                   Lihat Selengkapnya
@@ -524,7 +524,7 @@ function DropdownMobileInfo() {
           </p>
           <div className="px-4 py-2 mt-4">
             <Link
-              href="https://wondr.bni.co.id/legal/privacy-policy"
+              href="/legal/privacy-policy"
               className="text-[#FF8736] text-sm font-bold hover:underline flex items-center gap-1"
             >
               Lihat Selengkapnya
