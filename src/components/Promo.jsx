@@ -98,7 +98,9 @@ export default function PromoSection() {
               {promoData.map((promo) => (
                 <SwiperSlide key={promo.id}>
                   <a
-                    href={promo.href}
+                    href={
+                      "/promo/detail/dapatkan-e-voucher-gopay-rp25000-efwivb"
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                   >
