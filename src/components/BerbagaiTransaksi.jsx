@@ -4,14 +4,16 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { useState } from "react";
+import classNames from "classnames";
 
 const transactionData = [
   {
     id: 1,
     title: "Transfer",
+    href: "https://wondr.bni.co.id/detail/transfer",
     subtitle: "Kirim uang kapan aja, ke mana aja",
     description:
       "Kirim uang ke mana aja dan atur jadwal transfer sesuai maumu. Bisa transfer ke banyak tujuan sekaligus!",
@@ -20,6 +22,7 @@ const transactionData = [
   {
     id: 2,
     title: "Mobile Tunai",
+    href: "https://wondr.bni.co.id/detail/mobile-tunai",
     subtitle: "Tarik tunai bisa tanpa kartu",
     description:
       "Gak bawa kartu? Gak masalah! Cukup buka aplikasi, tarik tunai segampang itu.",
@@ -37,6 +40,7 @@ const transactionData = [
   {
     id: 4,
     title: "Transfer Luar Negeri",
+    href: "https://wondr.bni.co.id/detail/remittance",
     subtitle: "Kirim uang antarnegara dalam hitungan menit",
     description:
       "Transfer ke berbagai negara gak perlu nunggu lama. Bisa cek status pengiriman juga.",
@@ -53,6 +57,7 @@ const transactionData = [
   {
     id: 6,
     title: "Bayar & Beli",
+    href: "https://wondr.bni.co.id/detail/bayar-beli",
     subtitle: "Bisa bayar tagihan di puluhan layanan",
     description:
       "Satu tempat bisa buat beli pulsa, bayar listrik, sampai zakat. Ada pengingat biar gak kelewat!",
@@ -70,6 +75,7 @@ const transactionData = [
   {
     id: 8,
     title: "TapCash",
+    href: "https://wondr.bni.co.id/detail/tapcash",
     subtitle: "Bayar tol sampai parkir tinggal tap aja",
     description:
       "Tinggal tempelin kartu ke HP buat cek dan isi saldo. Pakai Express Top Up bisa tanpa login.",
@@ -108,43 +114,43 @@ export default function BerbagaiTransaksi() {
           slidesOffsetAfter={16}
           breakpoints={{
             320: {
-              slidesPerView: 1.2,
+              slidesPerView: 2,
               spaceBetween: 16,
               slidesOffsetBefore: 16,
               slidesOffsetAfter: 16,
             },
             480: {
-              slidesPerView: 1.5,
+              slidesPerView: 2.5,
               spaceBetween: 16,
               slidesOffsetBefore: 24,
               slidesOffsetAfter: 24,
             },
             640: {
-              slidesPerView: 1.8,
+              slidesPerView: 3,
               spaceBetween: 20,
               slidesOffsetBefore: 32,
               slidesOffsetAfter: 32,
             },
             768: {
-              slidesPerView: 2.2,
+              slidesPerView: 3.5,
               spaceBetween: 24,
               slidesOffsetBefore: 40,
               slidesOffsetAfter: 40,
             },
             1024: {
-              slidesPerView: 2.5,
+              slidesPerView: 4,
               spaceBetween: 24,
               slidesOffsetBefore: 48,
               slidesOffsetAfter: 48,
             },
             1280: {
-              slidesPerView: 3,
+              slidesPerView: 4.5,
               spaceBetween: 24,
               slidesOffsetBefore: 64,
               slidesOffsetAfter: 64,
             },
             1536: {
-              slidesPerView: 3.5,
+              slidesPerView: 5,
               spaceBetween: 24,
               slidesOffsetBefore: 80,
               slidesOffsetAfter: 80,
@@ -177,9 +183,23 @@ export default function BerbagaiTransaksi() {
                     {/* FRONT CARD */}
                     <div className="absolute inset-0 bg-[#f9f9f9] rounded-2xl md:rounded-3xl lg:rounded-4xl flex flex-col justify-between [backface-visibility:hidden] [transform:rotateY(0deg)] overflow-hidden">
                       <div className="p-4 md:p-5 lg:p-6 text-left flex-shrink-0">
-                        <h3 className="text-xs md:text-sm lg:text-base font-light text-black">
+                        <h3
+                          className={classNames(
+                            {
+                              "cursor-pointer": card.href,
+                              "cursor-grab": !card.href,
+                            },
+                            "text-xs md:text-sm lg:text-base font-light text-black"
+                          )}
+                          onClick={() => {
+                            if (card.href) {
+                              window.open(card.href, "_blank");
+                            }
+                          }}
+                        >
                           {card.title}
                         </h3>
+
                         <p className="text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold leading-[120%] mt-1 lg:mt-2 text-black">
                           {card.subtitle}
                         </p>
