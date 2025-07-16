@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function IntroSection() {
   return (
     <section className="py-6 md:py-[72px] bg-gray-50">
-      <div className="px-[120px] mx-auto text-center">
+      <div className="px-6 md:px-[120px] mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] text-black font-bold">
           Kenalan sama 3 dimensi keuangan
         </h2>
