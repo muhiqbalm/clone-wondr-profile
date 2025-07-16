@@ -1,5 +1,11 @@
 export const dynamic = "force-static";
 
+export const metadata = {
+  title: "Kebijakan Privasi | wondr by BNI",
+  description:
+    "Pelajari bagaimana kami melindungi dan mengelola data pribadi Anda dengan aman dan terpercaya di wondr by BNI.",
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div>
